@@ -23,8 +23,8 @@ defmodule Convulse.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     [
-      applications: [:logger, :httpoison, :cachex]
-      # mod: { Convulse, [] }
+      applications: [:logger, :httpoison, :cachex],
+      mod: { Convulse, [] }
     ]
   end
 
