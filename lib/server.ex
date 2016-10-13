@@ -33,7 +33,7 @@ defmodule Convulse.Server do
   end
 
   defp cache_response(service_name, value) do
-    cache_ttl = Application.get_env(:convulse, :ttl)
+    cache_ttl = Application.get_env(:convulse, :ttl) || 30
     Cachex.set(:convulse, Atom.to_string(service_name), value, [ttl: :timer.seconds(cache_ttl)])
   end
 
