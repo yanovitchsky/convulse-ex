@@ -52,7 +52,7 @@ defmodule Convulse.Server do
                 }
               end)
           cache_response(service_name, services)
-          services
+          {:ok, services}
         else
           {:error, :unknown_service}
         end

@@ -7,7 +7,7 @@ defmodule ConvulseSpec do
     # end
 
     it "queries service" do
-      res = Convulse.discover(:sap_bridge)
+      {:ok, res} = Convulse.discover(:sap_bridge)
       expect res |> to(have_size 1)
 
       expect List.first(res) |> to(have_key :service_name)
@@ -21,7 +21,7 @@ defmodule ConvulseSpec do
     end
 
     it "caches response" do
-      res = Convulse.discover(:sap_bridge)
+      {:ok, res} = Convulse.discover(:sap_bridge)
       service = res |> List.first |> Map.get(:service_name)
       expect service |> to(eq "sap_bridge")
       allow HTTPoison |> to(accept(:get, fn(args) -> passthrough([args]) end))
