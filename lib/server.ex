@@ -22,7 +22,7 @@ defmodule Convulse.Server do
       {:missing, _} ->
         fetch_from_consul(service_name)
       # in cache
-      {:ok, value} -> value
+      {:ok, value} -> {:ok, value}
     end
 
     {:reply, services, service_name}
